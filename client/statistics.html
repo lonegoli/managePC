@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>菜脑壳无线点餐后台管理系统</title>
+<link href="css/statistics.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/statistics.js"></script>
+<script type="text/javascript" src="js/vbar.js"></script>
+<script type="text/javascript" src="js/line.js"></script>
+
+<script type="text/javascript" src="js/jquery-calendar.js"></script> 
+<link rel="stylesheet" type="text/css" href="css/jquery-calendar.css" /> 
+</head>
+<body>
+<div class="content clearfix">
+     <div class="leftContent">
+          <div class="showInfo">
+        
+          </div>
+     </div>
+     <div class="rightContent">
+          <div class="changeInfo">
+              <form>
+                   <fieldset>
+                           <legend>统计</legend>
+                           <!--<input type="text" id="calendar1" maxlength="16" onfocus="$(this).calendar()" readonly/>-->
+                               <div class="startTime">
+			                        <p>开始时间：</p>
+                                    <input type="text" id="calendar2" maxlength="10"/> 
+                                    <img class="picker" align="middle" alt="" src="images/s.gif" onClick="$('#calendar2').calendar()">
+			                        <input type="text" id="calendar3" maxlength="5"/> 
+                                    <img class="picker" align="middle" alt="" src="images/s.gif" onClick="$('#calendar3').calendar()">
+                               </div>
+                               <div class="endTime">
+                                    <p>结束时间：</p>
+                                    <input type="text" id="calendar4" maxlength="10"/> 
+                                    <img class="picker" align="middle" alt="" src="images/s.gif" onClick="$('#calendar4').calendar()">
+			                        <input type="text" id="calendar5" maxlength="5"/> 
+                                    <img class="picker" align="middle" alt="" src="images/s.gif" onClick="$('#calendar5').calendar()">
+                               </div> 
+                               <div class="submit">
+                                    <input type="button" value="商品统计表" id="submit1">
+                                    <!--<input type="button" value="分类统计表" id="submit8">-->
+                                    <input type="button" value="绩效统计" id="submit4">
+                                    <input type="button" value="导出" id="submit6">
+                               </div>        
+                   </fieldset>
+              </form>
+          </div>
+          <div class="statisticsPic">
+               <fieldset>
+                           <legend>生成统计图</legend>
+                           <div>
+                           <select id="vbarSta">
+                                  <option value="yearS" selected="selected" id="V_yearS">年统计</option>
+                                  <option value="monthS" id="V_monthS">月统计</option>
+                                  <option value="dayS" id="V_dayS">本周统计</option>
+                           </select>
+                           <span class="dateDis1">
+                           <input type="text" id="S_yearS" class="textSta"/>至
+                           <input type="text" id="E_yearS" class="textSta"/>
+                           </span>
+                           <span class="dateDis2">
+                           <input type="text" id="N_yearS" class="textSta"/>
+                           </span>
+                           
+                           </div>
+                           <input type="button" value="生成柱状图" id="submit2">
+                           <input type="button" value="生成折线图" id="submit3">
+               </fieldset>
+          </div>
+     </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+/*---------------------------通用定义-----------------------*/
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+* html .clearfix {height: 1%;}
+/*--------------------------------------*/
+li{
+	list-style-type:none;
+}
+a{
+	text-decoration:none;
+	color:#000;
+}
+img{
+	border-style:none;
+
+}
+html{
+	height:100%;
+}
+body {
+    background: none repeat scroll 0 0 #5D7397;
+    color: #333333;
+    font: 12px/1.5 Tahoma,Helvetica,Arial,sans-serif;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+.content{
+	background: none repeat scroll 0 0 #DEEBF3;
+    height: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    min-width: 1000px;
+    overflow: auto;
+    padding-top: 18px;
+}
+.leftContent{
+	height:100%;
+	width:76%;
+	float:left;
+}
+.rightContent{
+	height:100%;
+	width:22%;
+	border-left:1px dashed #000;
+	float:right;
+}
+.showMemFunc li{
+	 display: block;
+    float: left;
+    margin-left: 30px;
+    max-height: 230px;
+    max-width: 240px;
+    overflow: hidden;
+    width: 20%;
+}
+.showMemFunc li div{
+	text-align:center;
+}
+.showMemFunc li span{
+	display:block;
+	font-size:24px;
+}

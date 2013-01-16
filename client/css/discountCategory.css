@@ -1,0 +1,73 @@
+/*---------------------------通用定义-----------------------*/
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+* html .clearfix {height: 1%;}
+/*--------------------------------------*/
+li{
+	list-style-type:none;
+}
+a{
+	text-decoration:none;
+	color:#000;
+}
+html{
+	height:100%;
+}
+body {
+    background: none repeat scroll 0 0 #5D7397;
+    color: #333333;
+    font: 18px/1.5 Tahoma,Helvetica,Arial,sans-serif;
+    height: 100%;
+    margin: 0 30px;
+    padding: 0;
+}
+.content{
+	background-color: #DEEBF3;
+    height: 100%;
+    margin-top: 0;
+    overflow: hidden;
+    width: 100%;
+}
+.leftContent{
+	height:100%;
+	width:22%;
+	float:left;
+	overflow:auto;
+}
+.leftContent ul li{
+	cursor:pointer;
+}
+.rightContent{
+	height:100%;
+	width:76%;
+	border-left:1px dashed #000;
+	float:right;
+	overflow:auto;
+	
+}
+.register{
+	margin-left:20px;
+}
+#howDiscount{
+	margin-left:16px;
+}
+.change{
+	margin-left:30px;
+}
+.box2{
+	padding-top:40px;
+	padding-left:20px;
+}
+.box2 input{
+	width:60px;
+	margin-left:20px;
+}
+#jianche{
+	color:#F00;
+}

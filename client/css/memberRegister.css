@@ -1,0 +1,153 @@
+/*---------------------------通用定义-----------------------*/
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+* html .clearfix {height: 1%;}
+/*--------------------------------------*/
+
+a{
+	text-decoration:none;
+	color:#000;
+}
+img{
+	border-style:none;
+
+}
+html{
+	height:100%;
+}
+body {
+    background: none repeat scroll 0 0 #5D7397;
+    color: #333333;
+    font: 12px/1.5 Tahoma,Helvetica,Arial,sans-serif;
+    height: 100%;
+    margin: 0 30px;
+    overflow: hidden;
+    padding: 0;
+}
+.content{
+    background-color: #DEEBF3;
+    height: 100%;
+    overflow:auto;
+    width: 100%;;
+}
+.leftContent{
+	height:100%;
+	width:50%;
+	float:left;
+	margin-left:12px;
+}
+.rightContent{
+	height:100%;
+	width:48%;
+	border-left:1px dashed #000;
+	float:right;
+}
+.rightContent .addInfo h4{
+	margin-top:4px;
+	margin-bottom:4px;
+}
+.picFieldset{
+	width:122px;
+	height:142px;
+	float:right;
+}
+.pic{
+	width:120px;
+	height:120px;
+	border:1px solid #999;
+	background-color:#CCC;
+	
+}
+.box1 div,.box2 div{
+	margin-top:8px;
+}
+.sibDiv{
+	overflow:hidden;
+}
+.nextDiv{
+	float:left;
+}
+#date div.nextDiv{
+	margin-right:20px;
+}
+#personHandling{
+	margin-left:12px;
+}
+#personHandling div.nextDiv{
+	margin-right:48px;
+}
+#remark{
+	padding-left:24px;
+}
+.high{
+	color:#F00;
+}
+#setting div{
+	margin-right:20px;
+}
+#zhengsong input,#firstChongzhi input,#touzhi input{
+	width:80px;
+}
+.picker {
+    background: url("../images/cal.gif") no-repeat scroll 0 0 transparent;
+    border-style: none;
+    cursor: pointer;
+    height: 16px;
+    margin-bottom: 8px;
+    margin-left: -19px;
+    width: 16px;
+}
+.submit{
+	text-align:right;
+}
+#box1Reset{
+	display:none;
+}
+#jianche{
+	color:#F00;
+}
+.aboutMoney{
+	color:#F00;
+}
+#passwordCheck1,#passwordCheck2{
+	color:#F00;
+}
+.addInfo{
+	height:35%;
+	overflow:auto;
+}
+.memberBox{
+	height:60%;
+	overflow:auto;
+	
+}
+.search{
+	height:40px;
+	display:none;
+	
+}
+.memberTable table tr td{
+	width:200px;
+}
+.memberTable table tr:nth-child(even){
+	background-color:#CC0;
+}
+.memberTable table tr:nth-child(odd){
+	background-color:#6C3;
+}
+
+/*.memberTable table .even{
+	background-color:#CC0;
+}
+.memberTable table .odd{
+	background-color:#6C3;
+}*/
+.memberTable table tr.selected{
+	background-color:#FF6500;
+}

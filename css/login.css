@@ -1,0 +1,64 @@
+body{
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+}
+.background{
+	background:url("../wallpapers/desk.jpg");
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+   -moz-background-size: 100% 100%; 
+    -o-background-size: 100% 100%; 
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%; 
+}
+.login{
+	height:37%;
+	position:absolute;
+	top:200px;
+	width:100%;
+	
+	
+}
+.loginCenter{
+	width:35%;
+	background-color:#06F;
+	margin:auto;
+	height:100%;
+	-moz-border-radius:8px 8px 8px 8px;/*firefox Mozilla */
+    -webkit-border-radius:8px 8px 8px 8px;/*chrome WebKit*/
+	border-radius: 8px 8px 8px 8px;
+	box-shadow:0 0 1px #FFF inset;
+	-moz-box-shadow:0 0 1px #FFF inset;
+    -webkit-box-shadow:0 0 1px #FFF inset;
+	overflow:hidden;
+	
+}
+.center{
+	text-align:center;
+	margin-top:10px;
+	font-family:"微软雅黑","黑体","宋体";
+	
+}
+.user{
+	margin-top:40px;
+}
+.user input,.password input{
+	border: 1px solid #06C;
+    color: #000;
+    height: 18px;
+    width: 130px;
+	
+}
+.password{
+	margin-top:10px;
+	
+}
+.sub{
+	margin-top:10px;
+	padding-left:16px;
+}
+.Errow{
+	color:#F00;
+	height:20px;
+}

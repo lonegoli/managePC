@@ -1,0 +1,108 @@
+<?php 
+header("Content-type: text/html; charset=utf-8"); 
+?> 
+<?php
+ob_start();
+session_start();
+include('quote.php');
+$waiter=isset($_SESSION['loginUser'])?$_SESSION['loginUser']:"未设置";
+$arr=$_REQUEST['arr'];
+$tableName=$_POST['tableName'];
+$tableId=$_POST['tableId'];
+$obj=array();
+$obj['timestamp']=date('Y-m-d H:i:s',time());
+$obj['order']=$arr;
+$obj['tableId']=$tableId;
+$obj['tableName']=$tableName;
+$obj['type']="pad";
+$obj['persons']=0;
+$obj['waiter']=$waiter;
+if(isset($_POST['addr']))
+{
+	$obj['addr']=$_POST['addr'];
+}
+if(isset($_POST['remark']))
+{
+	if($_POST['remark']!="null")
+	$obj['comment']=$_POST['remark'];
+}
+if(isset($_POST['multi']))
+{
+	if(intval($_POST['multi'])==1)
+	{
+	$obj['multi']=$_POST['multi'];
+	}
+}
+if(isset($_POST['reservation']))
+{
+	$obj['reservation']=$_POST['reservation'];
+}
+if(isset($_POST['deposit']))
+{
+	$obj['deposit']=$_POST['deposit'];
+}
+if(isset($_POST['name']))
+{
+	$obj['name']=$_POST['name'];
+}
+if(isset($_POST['tel']))
+{
+	$obj['tel']=$_POST['tel'];
+}
+if(isset($_POST['timeType']))
+{
+	if(date('H:i:s',time())>TIMEBOUNDARY)
+	{
+		$str="晚".$_POST['timeType'];
+	    $obj['timeType']=str_replace("单",'',$str);
+		//$obj['timeType']=$str;
+	}
+	else
+	{
+		$str="午".$_POST['timeType'];
+		$obj['timeType']=str_replace("单",'',$str);
+		//$obj['timeType']=$str;
+	}
+	//echo $obj['timeType'];
+}
+if(isset($_POST['advPayment']))
+{
+	$obj['advPayment']=$_POST['advPayment'];
+}
+/*if(isset($_POST['deposit']))
+{
+	$obj['deposit']=$_POST['deposit'];
+}
+if(isset($_POST['name']))
+{
+	$obj['name']=$_POST['name'];
+}
+if(isset($_POST['tel']))
+{
+	$obj['tel']=$_POST['tel'];
+}
+if(isset($_POST['remark']))
+{
+	$obj['remark']=$_POST['remark'];
+}
+if(isset($_POST['addr']))
+{
+	$obj['addr']=$_POST['addr'];
+}*/
+
+if($waiter=="未设置")
+{
+	$obj['waiterId']=1;
+}
+else
+{
+$db=openSQLite3User();
+$sql="select id from userInfo where username='".$waiter."'";
+$rs=$db->query($sql);
+$row = $rs->fetchArray();
+$obj['waiterId']=isset($row["id"])?$row['id']:1;
+$db->close();
+$db=null;
+}
+echo json_encode($obj);
+?>

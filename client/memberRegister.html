@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>菜脑壳无线点餐后台管理系统</title>
+<link href="css/memberRegister.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/memberRegister.js"></script>
+<script type="text/javascript" src="js/jquery-calendar.js"></script> 
+<link rel="stylesheet" type="text/css" href="css/jquery-calendar.css" /> 
+</head>
+<div class="content">
+    <div class="leftContent">
+       <div class="memberInfo">
+          <div class="box1 clearfix">
+              <form>
+                   <fieldset>
+                           <legend>基本信息</legend>
+                           <fieldset class="picFieldset">
+                                <legend>照片</legend>
+                                <div class="pic">
+                                
+                                </div>
+                           </fieldset>
+                           <div id="cardNumber">
+                                <span>会员卡号:</span><span><input type="text" class="required" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/></span><span id="jianche"></span>
+                           </div>
+                           <div id="cardCategory">
+                                <span>会员类型:</span>
+                                <span id="biaoji"></span>
+                                
+                           </div>
+                           <div id="memberName">
+                                <span>会员姓名:</span><input type="text"/>
+                           </div>
+                           <div id="memGender">
+                                <span>会员性别:</span>
+                                <select>
+                                        <option value="1">男</option>
+                                        <option value="0">女</option>
+                                </select>
+                           </div>
+                           <div id="memberPhone">
+                                <span>会员电话:</span><input type="text"/>
+                           </div>
+                           <div id="credentialsNum">
+                                <span>证件号码:</span><input type="text"/>
+                           </div>
+                           <div id="memberBirthday">
+                                <span>会员生日:</span><input type="text" id="calendarBir"/>
+                                <img class="picker" align="middle" alt="" src="images/s.gif" onClick="$('#calendarBir').calendar()">
+                           </div>
+                           <div id="memberAddress">
+                                <span>会员地址:</span><input type="text"/>
+                           </div>
+                           <div id="income">
+                                <span>会员收入:</span><input type="text"/>
+                           </div>
+                           <div id="date" class="sibDiv">
+                                <div class="nextDiv">
+                                     <span>发卡日期:</span><input type="text" id="calendar1"/>
+                                     <img class="picker" align="middle" alt="" src="images/s.gif" onClick="$('#calendar1').calendar()">
+                                    
+                                </div>
+                                <div class="nextDiv">
+                                     <span>有效日期:</span><input type="text" id="calendar2"/>
+                                     <img class="picker" align="middle" alt="" src="images/s.gif" onClick="$('#calendar2').calendar()">
+                                </div>
+                           </div>
+                           <div id="personHandling" class="sibDiv">
+                                <div class="nextDiv">
+                                     <span>经手人:</span><input id="person" type="text"/>
+                                </div>
+                                <div class="nextDiv">
+                                     <span>会费:</span><input id="personMoney" class="aboutMoney" type="text" value="0" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/>
+                                </div>
+                           </div>
+                           <div id="remark">
+                                <span>备注:</span><textarea></textarea>
+                           </div>
+                           <div>
+                                 <input type="reset"  id="box1Reset">
+                           </div>
+                   </fieldset>
+               </form>
+          </div>
+          
+          <div class="box2">
+               <form>
+                <fieldset>
+                           <legend>设置</legend>
+                           <div id="status">
+                                <span>卡状态:</span>
+                                <select>
+                                        <option value="1">
+                                         使用
+                                        </option>
+                                        <option value="0">
+                                         禁用
+                                        </option>
+                                </select>
+                           </div>
+                           <div id="setting">
+                                <div class="sibDiv">
+                                    <div class="nextDiv" id="zhengsong">
+                                         <span>赠送:</span><input type="text" class="aboutMoney" value="0" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/>
+                                    </div>
+                                    <div class="nextDiv" id="firstChongzhi">
+                                         <span>初次充值金额:</span><input type="text" class="aboutMoney" value="0" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/>
+                                    </div>
+                                    <div class="nextDiv" id="touzhi">
+                                         <span>透支金额:</span><input type="text" class="aboutMoney" value="0" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/> 
+                                    </div>                             
+                                </div>
+                                <div  class="sibDiv">
+                                     <div id="firstPassword">
+                                          <span><span>设置密码:</span><input type="password" class="required"/><span>
+                                          <span id="passwordCheck1"></span>
+                                     </div>
+                                     <div id="againPassword">
+                                          <span><span>确认密码:</span><input type="password" class="required"/> </span>
+                                          <span id="passwordCheck2"></span>
+                                     </div>                            
+                                </div>
+                           </div>
+                           
+                           <div class="submit">
+                               <input type="button" id="submit" value="确定"/>
+                               <input type="reset" id="reset">
+                           </div>
+                </fieldset>
+              </form>  
+          </div>
+       </div>
+    </div>
+    
+    <div class="rightContent">
+         <div class="addInfo">
+              <fieldset>
+                   <legend>提示栏</legend>
+              <h4>注意事项</h4>
+              <ul>
+                  <li>会员卡号只能是小于10位数的数字。</li>
+                  <li>密码必须是6位数字或字母。</li>
+                  <li>前后两次密码必须保持一致。</li>
+                  <li>填写错误提交不了，弹出"操作成功"对话框才是操作正确执行。</li>
+              </ul>
+              </fieldset>
+         </div>
+         <div class="memberBox">
+         <fieldset>
+                   <legend>会员信息栏</legend>
+                   <div class="search">
+                        <span>筛选:</span><input type="text"/>
+                   </div>
+                   <div class="memberTable">
+                       
+                   </div>
+                   
+         </fieldset>
+              
+         </div>
+         <div class="buttomBox">
+             <input type="button" id="buttom_cx" value="查询"/>
+             <input type="button" id="buttom_xg" value="修改"/>
+             <a href="putExcel.php" target="_blank"><input type="button" id="buttom_dc" value="导出"/></a>
+             <input type="button" id="buttom_sc" value="删除"/>
+             <input type="button" id="buttom_qx" value="全选"/>
+             <input type="button" id="buttom_fx" value="反选"/>
+             <input type="button" id="buttom_qbx" value="全不选"/>
+             <input type="button" id="buttom_sx" value="筛选"/>    
+         </div>
+    </div>
+</div>
+<body>
+</body>
+</html>

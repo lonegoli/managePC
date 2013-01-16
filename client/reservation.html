@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>菜脑壳无线点餐后台管理系统</title>
+<link href="css/reservation.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/getNotification.js"></script>
+<script type="text/javascript" src="js/reservationOpen.js"></script>
+<script type="text/javascript" src="js/reserveJson.js"></script>
+<script type="text/javascript" src="js/MD5.js"></script>
+<script type="text/javascript" src="js/addDish.js"></script>
+<script type="text/javascript" src="js/reservation.js"></script> 
+<script type="text/javascript" src="js/jquery-calendar.js"></script> 
+<link rel="stylesheet" type="text/css" href="css/jquery-calendar.css" />
+<link rel="stylesheet" type="text/css" href="css/addDish.css" />  
+</head>
+<body>
+<div class="content">
+    <div class="leftContent">
+        <div class="leftBox1">
+             <form>
+                   <fieldset>
+                           <legend>预定管理</legend>
+                           <input id="hidden" type="hidden" value="">
+                           <div>
+                                <div class="info">
+                                     <span>顾客姓名：</span><input id="customerName" type="text"/>
+                                </div>
+                                <div class="info">
+                                     <span>顾客电话：</span><input type="text" id="phoneNum" class="required" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                </div>
+                                <div class="info">
+                                     <span>预定日期：</span><input type="text" class="required" id="reservationTime" maxlength="16"/>
+                                     <img class="picker" align="middle" alt="" src="images/s.gif" onClick="$('#reservationTime').calendar()"/>
+                                     <span id="timejianche"></span>
+                                </div>
+                                <div class="info clearfix">
+                                     <div class="nextInfo">
+                                          <span>是否押金：</span><select id="cashPledgeYN"><option value="1">是</option><option value="0" selected="selected">否</option></select>
+                                     </div>
+                                     <div class="nextInfo cashPledgeDiv">
+                                          <span>押金金额：</span><input type="text" id="cashPledge" value="0" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                     </div>
+                                </div>
+                                
+                                <div class="info">
+                                     <span>预计人数：</span><input type="text" id="personNum" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                </div>
+                                <div class="info">
+                                     <span>预定桌数：</span><input type="text" id="tableNum" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                </div>
+                                <div class="info clearfix">
+                                      <div class="nextInfo">
+                                            <span>确定桌号：</span><select id="submitTableYN"><option value="1">是</option><option value="0" selected="selected">否</option></select>                                     
+                                           
+                                      </div>
+                                       <div class="nextInfo">
+                                             <span>菜品预定：</span><select id="dishReser"><option value="1">是</option><option value="0" selected="selected">否</option></select>
+                                       </div>
+                                       <div class="nextInfo">
+                                             <input type="checkbox" name="checkbox1" id="YNwith" checked="checked">是否并打
+                                       </div>
+                                 </div>     
+                                 <div class="info submitTable">
+                                        <div class="nextInfo">
+                                          <select  multiple="multiple" id="select1">
+                                                                                       
+                                          </select>
+                                        </div>
+                                        <div class="nextInfo center">
+                                             <p>&gt;&gt;</p>
+                                             <p>&lt;&lt;</p>
+                                        </div>
+                                        <div class="nextInfo">
+                                           <select  multiple="multiple" id="select2">
+                                        
+                                          </select>
+                                        </div>
+                                   
+                                </div>
+                                <div class="info">
+                                     <span>备注信息：</span><textarea id="remark"></textarea>
+                                </div>
+                                <div class="info">
+                                     <span>外卖地址：</span><textarea id="remarkArr"></textarea>
+                                </div>
+                                <div class="info clearfix">
+                                     <div class="submit">
+                                           
+                                           <input type="button" value="开台" id="open_table">
+                                           <input type="button" value="留单打印" id="reservation_print">
+                                           <input type="button" value="返回" id="reback">
+                                           <input type="button" value="修改" id="revise">
+                                           <input type="button" value="删除" id="deleteReservation">
+                                           <input type="button" value="添加" id="submit">
+                                           <input type="reset" id="reset" value="重置">
+                                     </div>
+                                </div>
+                              
+                                
+                           </div>
+                   </fieldset>
+              </form>     
+        </div>
+    </div>
+    <div class="rightContent">
+        <div class="nowAdd">
+             <fieldset>
+                       <legend>最新预定信息</legend>
+                       <div class="nowAddInfo">
+                       </div>
+             </fieldset>
+        </div>
+        <div class="find">
+             <fieldset>
+                       <legend>查找预定信息</legend>
+                       <div class="findInfo">
+                            <div class="changeFind">
+                                  <input type="radio" name="radio" id="radio1"/><span>按名字查询</span>
+                                  <input type="radio" name="radio" id="radio2"/><span>按电话查询</span>
+                                  <input type="radio" name="radio" id="radio3"/><span>按时间查询</span>
+                                  <input type="radio" name="radio" id="radio4"/><span>按时间段查询</span>
+                                  <input type="radio" name="radio" id="radio5"/><span>今日查询</span>
+                                 
+                            </div>
+                            <div class="showChangFind">
+                                  <span>请输入顾客姓名：</span><input type="text"/>
+                            </div>
+                            <div> 
+                                  <input type="button" value="查询" id="buttonSubmit"/>
+                            </div>
+                            <div class="showReservationInfo">
+                            
+                            </div>
+                       </div>
+             </fieldset>
+        </div>
+    </div>
+</div>
+
+<!--点菜框-->
+<div id="addDish" class="clearfix">
+     <div class="addDish_left">
+          <div class="addDish_left_header">
+            <ul class="addDish_left_ul">
+                <li class="dishCategory one_li"><a id="show_hide_category" href="javascript:void(0);">菜品分类</a><ul><li>ssss</li><li>aaaaa</li><li>ssss</li><li>aaaaa</li></ul></li>
+                <li class="dishCategory two_li"><span class="delimiter"></span></li>
+                <li class="dishCategory three_li">
+                    <div id="searchbar">
+                         <form id="searchform">
+                               <input id="s" class="swap_value" type="text" value="过滤" onblur="if(!value){value=defaultValue;}" onfocus="this.value=''" name="s">
+                               <input id="go" type="image" src="images/go.gif" alt="Search" title="过滤">
+                         </form>
+                    </div>
+                </li>
+            </ul>
+          </div>
+          <div class="addDish_left_content">
+              <div class="addDish_left_show">
+               <table id="dish_show">
+                     <tbody>
+                     
+                     </tbody>
+               </table>
+               </div>
+          </div>
+     </div>
+     <div class="addDish_right">
+         <div class="addDish_left_header addDish_right_header">
+              <span id="tableName"></span><span id="timeType">叫单</span><span id="dish_close">清除</span><span id="hideen"></span><span id="hideen1"></span>
+         </div>
+         <div id="ok_dish">
+               <div id="add_dish_ok">
+                   <!--<table id="add_dish_content">
+                   </table>-->
+                   <div id="add_dish_content">
+                   </div>
+               </div>
+         </div>
+         <div class="addDish_right_bottom">
+             <div class="add_money">
+                  <span class="zj">总价:</span><span class="show_all_money"></span><span id="add_submit">确定</span>
+             </div>
+         </div>
+     </div>
+</div>
+
+<div class="waiting">
+</div>
+
+<!--口味框-->
+<div id="showFlavor">
+    <div class="sf_content">
+  
+    </div>
+    <div class="sf_bottom">
+       <input type="button" value="取消" id="flavor_qx"/>
+       <input type="button" value="确定"/ id="flavor_qd">
+    </div>
+</div>
+</body>
+</html>

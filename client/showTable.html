@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>菜脑壳无线点餐后台管理系统</title>
+<link href="css/title.css" rel="stylesheet" type="text/css" />
+<link href="css/showTable.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="js/MD5.js"></script>
+<script type="text/javascript" src="js/getNotification.js"></script>
+<script type="text/javascript" src="js/showTable.js"></script>
+<script type="text/javascript">
+/*function $(id) {
+    return document.getElementById(id);
+}
+
+function showMenu (baseID, divID) {
+    baseID = $(baseID);
+    divID  = $(divID);
+    if (showMenu.timer) clearTimeout(showMenu.timer);
+	hideCur();
+    divID.style.display = 'block';
+	showMenu.cur = divID;
+
+    if (! divID.isCreate) {
+        divID.isCreate = true;
+        //divID.timer = 0;
+        divID.onmouseover = function () {
+            if (showMenu.timer) clearTimeout(showMenu.timer);
+			hideCur();
+            divID.style.display = 'block';
+        };
+
+        function hide () {
+            showMenu.timer = setTimeout(function () {divID.style.display = 'none';}, 1000);
+        }
+
+        divID.onmouseout = hide;
+        baseID.onmouseout = hide;
+    }
+	function hideCur () {
+		showMenu.cur && (showMenu.cur.style.display = 'none');
+	}
+}*/</script>
+</head>
+<body>
+<div class="content">
+     <div class="daohang">
+          <div class="nav">
+               <div class="navinner">
+                    <ul class="navlist">
+           
+                     </ul>
+               </div>  
+         </div>
+   </div>
+     
+   <div class="showTable">
+       <div class="tableContent clearfix">
+          
+       </div>
+   </div>
+     
+</div>
+<div id="phone_info">
+   <div id="phone_info_header">
+    <span>关闭</span>
+   </div>
+   <div id="phone_info_content">
+   </div>
+</div>
+<!--点菜框-->
+<div id="addDish" class="clearfix">
+     <div class="addDish_left">
+          <div class="addDish_left_header">
+            <ul class="addDish_left_ul">
+                <li class="dishCategory one_li"><a id="show_hide_category" href="javascript:void(0);">菜品分类</a><ul><li>ssss</li><li>aaaaa</li><li>ssss</li><li>aaaaa</li></ul></li>
+                <li class="dishCategory two_li"><span class="delimiter"></span></li>
+                <li class="dishCategory three_li">
+                    <div id="searchbar">
+                         <form id="searchform">
+                               <input id="s" class="swap_value" type="text" value="便捷点菜" onblur="if(!value){value=defaultValue;}" onfocus="this.value=''" name="s">
+                               <input id="go" type="image" src="images/go.gif" alt="Search" title="便捷点菜" onClick="return false">
+                         </form>
+                    </div>
+                </li>
+            </ul>
+          </div>
+          <div class="addDish_left_content">
+              <div class="addDish_left_show">
+               <table id="dish_show">
+                     <tbody>
+                     
+                     </tbody>
+               </table>
+               </div>
+          </div>
+     </div>
+     <div class="addDish_right">
+         <div class="addDish_left_header addDish_right_header">
+              <span>桌号:</span><span id="tableName"></span><span id="timeType">即单</span><span id="dish_close">关闭</span><span id="hideen"></span><span id="hideen1"></span>
+         </div>
+         <div id="ok_dish">
+               <div id="add_dish_ok">
+                   <!--<table id="add_dish_content">
+                   </table>-->
+                   <div id="add_dish_content">
+                   </div>
+               </div>
+         </div>
+         <div class="addDish_right_bottom">
+             <div class="add_money">
+                  <span class="zj">总价:</span><span class="show_all_money"></span><span id="add_submit">提交</span><input type="text" id="advanceMoney"value="0" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+             </div>
+         </div>
+     </div>
+</div>
+<!--进度条-->
+<div class="waiting">
+</div>
+
+<!--口味框-->
+<div id="showFlavor">
+    <div class="sf_content">
+  
+    </div>
+    <div class="sf_bottom">
+       <input type="button" value="取消" id="flavor_qx"/>
+       <input type="button" value="确定"/ id="flavor_qd">
+    </div>
+</div>
+
+
+<!--退菜框-->
+<div class="WR_box">
+     <div class="WR_box_header">
+          <span class="WR_tableNameM">
+           桌号:
+          </span>
+          <span class="WR_tableName">
+          </span>
+           <span id="WR_ref">刷新
+          </span>
+          <span id="WR_close">关闭
+          </span>
+     </div>
+     <div class="WR_box_content">
+           <div class="WR_box_contentL">
+           </div>
+           <div class="WR_box_contentR">
+           </div>
+     </div>
+     <div class="WR_box_footer">
+           <span class="WR_am">总价:<span id="WR_all_money"></span></span>
+           <span class="WR_how_much">数量:<span id="WR_dishNum"></span></span>
+           <span id="WR_delSubmit">退订</span>
+     </div>
+</div>
+<!--多桌结账-->
+<div class="moreCheck">
+     <div class="MC_content">
+          <div class="MC_brown">
+          </div>
+          <div class="MC_button">
+              <input type="button" id="MC_submit" value="多桌结账">
+          </div>
+     </div>
+</div>
+<!--预付-->
+<div class="yufu">
+    <img class="yufu_close" width="20" height="20" src="images/untitled2.png">
+    <h3><label id="advanceTable"></label>预付</h3>
+    <strong>预付金额：</strong><input type="text" id="advance" value="0" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+    <input type="button" id="advanceGo" value="提交">
+</div>
+</body>
+</html>

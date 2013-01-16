@@ -1,0 +1,175 @@
+/*---------------------------通用定义-----------------------*/
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+* html .clearfix {height: 1%;}
+/*--------------------------------------*/
+
+a{
+	text-decoration:none;
+	color:#000;
+}
+img{
+	border-style:none;
+
+}
+html{
+	height:100%;
+}
+body {
+    background: none repeat scroll 0 0 #5D7397;
+    color: #333333;
+    font: 12px/1.5 Tahoma,Helvetica,Arial,sans-serif;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+.content{
+    background-color: #DEEBF3;
+    height: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    min-width: 1000px;
+    overflow: auto;
+    padding-top: 18px;
+}
+.leftContent{
+	/*height:100%;*/
+	width:50%;
+	float:left;
+	margin-left:12px;
+}
+.rightContent{
+	/*height:100%;*/
+	width:48%;
+	border-left:1px dashed #000;
+	float:right;
+}
+.info{
+	margin-top:10px;
+	overflow:hidden;
+}
+.nextInfo{
+	float:left;
+	margin-right:12px;
+}
+.submit{
+	float:right;
+}
+.high{
+	color:#F00;
+}
+.picker {
+    background: url("../images/cal.gif") no-repeat scroll 0 0 transparent;
+    border-style: none;
+    cursor: pointer;
+    height: 16px;
+    margin-bottom: 8px;
+    margin-left: -19px;
+    width: 16px;
+}
+#cashPledge{
+	color:#F00;
+	width:36px;
+}
+.cashPledgeDiv{
+	display:none;
+}
+.submitTable{
+	display:none;
+	text-align:center;
+}
+#timejianche{
+	color:#F00;
+}
+.center{
+	padding-top:60px;
+}
+.center p{
+	margin:0px;
+}
+#select1,#select2{
+	width:100px;
+	height:160px;
+}
+#remark{
+	width:224px;
+	height:70px;
+}
+#remarkArr{
+	width:224px;
+	height:40px;
+}
+.nowAdd{
+	height:150px;
+	width:100%;
+	margin-left:16px;
+	overflow:auto;
+	/*border:1px solid #999;*/
+}
+.return{
+	display:block;
+	float:left;
+	list-style:none;
+	width:240px;
+	overflow:hidden;
+}
+.find{
+	height:auto;
+	width:100%;
+	margin-left:16px;
+	margin-top: 20px;
+}
+.showChangFind{
+	margin-top:12px;
+}
+.showReservationInfo{
+	max-height:200px;
+	width:100%;
+	overflow:auto;
+	background-color:#FFF;
+	margin-top:16px;
+	border:1px solid #CACACA;
+}
+table{
+	border:1px solid #999;
+	border-collapse:collapse;
+}
+tr{
+	cursor:pointer;
+}
+th,td{
+	border:1px solid #999;
+}
+.changeTr{
+	background-color:#deebf3;
+}
+#revise,#reback,#open_table,#reservation_print,#deleteReservation{
+	display:none;
+}
+.todayInfo{
+	border:1px solid #A5A5A5;
+	height:auto;
+	overflow:hidden;
+	margin-bottom:8px;
+}
+.waiting{
+	height:100px;
+	width:200px;
+	background: url("../images/loading1.gif") no-repeat scroll -60px -100px transparent;
+	color:#000;
+	position:absolute;
+	top:40%;
+	left:50%;
+	display:none;
+	margin-left:-100px;
+	z-index:9999;
+	
+}

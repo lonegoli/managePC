@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>菜脑壳无线点餐后台管理系统</title>
+<link href="css/memberCategory.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/memberCategory.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="leftContent">
+        
+    </div>
+    <div class="rightContent">
+        <div class="writeInfo">
+             <div class="daohang">
+                 <ul> 
+                     <li  class="select" id="add">
+                        <span>增加</span>
+                     </li>
+                     <li id="revise">
+                     <span>修改</span>
+                     </li>
+                 </ul>
+             </div>
+             <div class="writeContent">
+                 <div id="addContent">
+                   <form>
+                         <div><span>会员卡类型名称:</span><span id="biaoji"><input type="text" id="cardCategoryName"/><span id="jianche"></span></span></div>
+                         <div>
+                             <input type="checkbox" name="changeFun" id="rewardPoints"><span>允许积分</span>
+                             <input type="checkbox" name="changeFun" id="feeChargCard"><span>使用储值卡</span>
+                         </div>
+                         <div>
+                             <span>分类折扣:</span>
+                             <select id="discountCategory">
+                                   
+                             </select>
+                         </div>
+                         <div>
+                             <span class="remark">备注:</span>
+                             <textarea cols="30" rows="5" id="remark">
+                             </textarea>
+                             
+                         </div>
+                         <div>
+                             <span>时间段设置:</span>
+                             <select id="timeRestrain">
+                                    <option value="0" selected="selected">不受限</option>
+                                    <option value="1">受限</option>
+                             </select>
+                         </div>
+                         <div class="disabled">
+                              <span>定义时间:</span>
+                              <input type="text" id="startTime"/><span>至</span><input type="text" id="endTime"/>
+                         </div>
+                         <div id="buttom">
+                              <input type="button" id="addButtom" value="增加"/>
+                         </div>
+                         
+                         
+                   </form>
+                </div>  
+         
+             </div>
+        </div>
+     </div>
+</div>
+</body>
+</html>

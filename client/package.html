@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>菜脑壳无线点餐后台管理系统</title>
+<link href="css/package.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="js/package.js"></script>
+</head>
+<body>
+<div class="content clearfix">
+     <div class="leftContent">
+          <div id="leftContentLinks">
+               <a title="套餐" href=""><img class="icon" width="16" height="16" src="./images/b_home.png" alt="套餐"></a>
+               <a title="刷新" href=""><img class="icon" width="16" height="16" src="./images/s_reload.png" alt="刷新"></a>
+          </div>
+          <ul id="packageList">
+              <!--<li><a href="">套餐一</a></li>-->
+          </ul>
+     </div>
+     <div class="rightContent">
+          <h2>
+            套餐设置
+          </h2>
+          <ul>
+              <li id="li_create_package">
+                  <form id="create_package_form">
+                        <strong><label for="text_create_pa">新建套餐</label></strong>
+                        <br>
+                        <input id="text_create_pa" type="text" maxlength="64">
+                        <input id="buttonGo" type="submit" value="创建">
+                  </form>
+              </li>
+          </ul>
+          <div id="tableslistcontainer">
+               <form id="paStatsForm">
+                      <table id="tablepackage" class="data">
+                             <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th><a>套餐</a></th>
+                                        <th>总价格</th>
+                                        <th></th>
+                                    </tr>
+                             </thead>
+                             <tbody>
+                                    <!--<tr class="odd">
+                                       <td class="tool">
+                                           <input type="checkbox">
+                                       </td>
+                                       <td class="name">
+                                           <a>套餐一</a>
+                                       </td>
+                                       <td class="tool">
+                                         <label>600</label>
+                                       </td>
+                                       <td class="tool">
+                                          <a href="" title="查看/修改">
+                                             <span class="nowrap">
+                                                  <img class="icon" width="16" height="16" alt="查看/修改" title="查看/修改" src="./images/s_rights.png">
+                                                 查看/修改
+                                             </span>
+                                          </a>
+                                       </td>
+                                    </tr>
+                                    <tr class="even">
+                                       <td class="tool">
+                                           <input type="checkbox">
+                                       </td>
+                                       <td class="name">
+                                           <a>套餐一</a>
+                                       </td>
+                                       <td class="tool">
+                                         <label>600</label>
+                                       </td>
+                                       <td class="tool">
+                                          <a href="" title="查看/修改">
+                                             <span class="nowrap">
+                                                  <img class="icon" width="16" height="16" alt="查看/修改" title="查看/修改" src="./images/s_rights.png">
+                                                 查看/修改
+                                             </span>
+                                          </a>
+                                       </td>
+                                    </tr>
+                                    <tr id="pa_summary_row">
+                                        <th>
+                                        </th>
+                                        <th>
+                                        总计：
+                                        </th>
+                                        <th>
+                                        </th>
+                                        <th>
+                                        </th>
+                                    </tr>-->
+                             </tbody>
+                      </table>
+                      <img class="selectallarrow" width="38" height="22" alt="选中项：" src="./images/arrow_ltr.png">
+                      <a href="" id="markAllRows">全选</a>
+                      /
+                      <a href="" id="unMarkAllRows">全不选</a>
+                      <i>选中项：</i>
+                      <button id="deletePackage" class="mult_submit" title="删除" type="submit">
+                            <span class="nowrap">
+                                  <img class="icon" width="16" height="16" alt="删除" title="删除" src="./images/b_deltbl.png">
+                                  删除
+                            </span>
+                      </button>
+                      
+               </form>
+          </div>
+     </div>
+</div>
+
+<!--处理信息-->
+<div id="showInfo">
+    <span id="showInfoContent"></span>
+</div>
+</body>
+</html>

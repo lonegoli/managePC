@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+ <history name="history">
+    <key name="history_one">jack</key>
+ </history>
+</config>
